@@ -9,14 +9,55 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html" aria-label="Fisheye Home Page"><img src="assets/images/logo.png" class="logo" alt="fisheye logo" aria-label="Fisheye Home Page" href="index.html"/></a>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+       <!-- <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        
+        <div class="filter-section">
+          <label for="sortOptions" class="trier">Trier par :</label>
+          <select name="sortOptions" id="sortOptions" class="sort-options" onchange="handleSortChange(this.value)">
+            <option value="popularity">Popularité</option>
+            <option value="date">Date</option>
+            <option value="price">Prix</option>
+          </select>
+        </div>
+
+
+
+ 
+
+
+
+
+      --> 
+      </div>
+
+      <div class="filter-section">
+        <h2 class="trier">Trier par</h2>
+  
+        <div class="dropdown-content" id="myDropdown" role="listbox" aria-label="Options">
+          <div class="dropdownIcon-content">
+            <i class="fa-solid fa-chevron-up toggle-dropdown-on" id="fa-chevron-up"></i>
+            <i class="fa-solid fa-chevron-down toggle-dropdown-off" id="fa-chevron-down"></i>
+          </div>
+          <a href="#" id="selected" class="toggle-dropdown-on"></a>
+          <div id="show-selected">
+            <a href="#" id="popularity">Popularité</a>       
+            <a href="#" id="dropdown_middle-option">Date</a>
+            <a href="#" id="dropdown-title">Titre</a>           
+          </div>
+
+        </div>
+      </div> 
+        
+    
+      <div class="photograph-content">
       </div>
     </main>
-    <div id="contact_modal">
+
+    <div id="contact_modal" aria-hidden="true" role="dialog" aria-modal="true">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
@@ -25,13 +66,33 @@
 				<form>
 					<div>
 						<label>Prénom</label>
-						<input />
+						<input id="first"/>
+            <label>Nom</label>
+						<input id="last" />
+            <label>Email</label>
+						<input id="email" type="email"/>
+            <label>Message</label>
+						 <textarea name="" id="message" cols="30" rows="10"></textarea>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-labelledby="lightbox_title" aria-describedby="lightbox_desc">
+      <button class="lightbox_close" aria-label="Fermer la lightbox" onclick="closeLightbox()">×</button>
+      <button class="lightbox_prev" aria-label="Image précédente"  >‹</button>
+      <div class="lightbox_content">
+      </div>
+      <div class="litghbox_image_description">
+        <p id="lightbox_desc" class="lightbox_caption"></p>
+      </div>
+      <button class="lightbox_next" aria-label="Image suivante"  >›</button>
+    </div>
+ 
+    <script src="scripts/pages/photographer.js"></script>
+    <script src="scripts/utils/lightbox.js"></script>
+    <script src="scripts/utils/contactForm.js"></script>
+    <script src="https://kit.fontawesome.com/c602fe77e3.js" crossorigin="anonymous"></script>
   </body>
 </html>

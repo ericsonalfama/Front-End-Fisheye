@@ -1,0 +1,3 @@
+let photographerPhotos = [];
+
+export { photographerPhotos };
