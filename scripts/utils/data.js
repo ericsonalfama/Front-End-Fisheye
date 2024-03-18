@@ -1,3 +1,0 @@
-let photographerPhotos = [];
-
-export { photographerPhotos };
