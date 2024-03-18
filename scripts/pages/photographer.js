@@ -397,7 +397,7 @@ async function toggleLike(media, icon, likesDisplay, event) {
     mediaIcon.setAttribute('data-liked', 'true');
   }
 
-  // Mettez à jour le texte de l'élément p avec le nouveau total de likes
+  // Mise à jour du texte de l'élément <p> avec le nouveau total de likes
   nbTotalLikes.textContent = totalLikeBanner;
   mediaLikes.textContent = `${singleMedia.likes} likes`;
 
@@ -420,7 +420,6 @@ async function updateTotalLikesDisplay() {
   const data = await response.json();
   const photographerMedia = data.media.filter((media) => media.photographerId == photographerId);
   const totalLikes = calculateTotalLikes(photographerMedia);
-  // totalLikesDisplay.textContent = `${totalLikes}`;
 }
 
 // Fonction pour récupérer le price depuis le tableau photographers
@@ -449,13 +448,10 @@ async function getLikes(currentPhotographerId) {
     // Récupérer le fichier JSON contenant les photographes et les médias
     const response = await fetch('data/photographers.json');
     const data = await response.json();
-
     // Filtrer les médias par l'ID du photographe
     const photographerMedia = data.media.filter((media) => media.photographerId == currentPhotographerId);
-
     // Calculer la somme totale des likes
     const totalLikes = photographerMedia.reduce((sum, media) => sum + media.likes, 0);
-
     // Retourner la somme totale des likes
     return totalLikes;
   } catch (error) {
