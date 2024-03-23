@@ -113,6 +113,12 @@ article{
     border-radius: 10px;
 }
 
+a img:hover, a img:focus{
+    scale: 1.2;
+    transition: scale 500ms;
+    transition-delay: 300ms;
+}
+
 .media_description{
     display: grid;
     grid-template-columns: 3fr 1fr;
