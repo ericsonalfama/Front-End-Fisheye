@@ -59,6 +59,7 @@ GERER DROPDOWN
     const dropdownON = document.getElementById('fa-chevron-up');
     const dropdownOFF = document.getElementById('fa-chevron-down');
     const dropdownSelected = document.getElementById('selected');
+    const dropdownSelectedContainer = document.querySelector('.dropdownIcon-content');
 
     function sortBy(criteria) {
       switch (criteria) {
@@ -99,6 +100,7 @@ GERER DROPDOWN
       dropdownOFF.style.display = 'none';
       dropdownON.style.display = 'block';
       dropdownSelected.style.display = 'none';
+      dropdownSelectedContainer.classList.add('dropdownIcon-content-opened');
     }
 
     // Fonction pour fermer la dropdown
@@ -108,6 +110,7 @@ GERER DROPDOWN
       dropdownOFF.style.display = 'block';
       dropdownON.style.display = 'none';
       dropdownSelected.style.display = 'block';
+      dropdownSelectedContainer.classList.remove('dropdownIcon-content-opened');
     }
 
     // Fonction pour trier et fermer la dropdown
