@@ -200,7 +200,6 @@ async function getPhotographersProfile(singlePhotographerId) {
     photographHeader.appendChild(centerContainer);
     photographHeader.appendChild(rightContainer);
 
-    console.log(photographerProfile);
     return photographerProfile;
   } catch (error) {
     console.error('Une erreur s\'est produite lors de la récupération du profil du photographe:', error);
@@ -287,7 +286,6 @@ function getUserCardDOM(media, i) {
       mediaElement.src = `assets/images/${media.photographerId}/${media.image || media.video}`;
   }
 
-  console.log(mediaElementsById[mediaElement.id]);
   return article;
 }
 

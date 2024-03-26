@@ -1,15 +1,15 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* ----------------------------------------------------------------
-HANDLING OPEN/SHOW & CLOSE MODAL
+MANIPULATION OUVRIR/AFFICHER ET FERMER LE MODAL
 ----------------------------------------------------------------- */
-// Function to show modal
+// Fonction pour afficher la modale
 function displayModal() {
   const modal = document.getElementById('contact_modal');
   modal.style.display = 'block';
 }
 
-// Function to close modal
+// Fonction pour fermer la modale
 function closeModal() {
   const modal = document.getElementById('contact_modal');
   modal.style.display = 'none';
@@ -23,7 +23,7 @@ window.addEventListener('keydown', (event) => {
   }
 });
 
-// Function to show success message modal
+// Fonction pour afficher la modale de succès
 function successModal() {
   const modalContainer = document.getElementById('contact_modal');
   const modal = document.querySelector('.modal');
@@ -51,25 +51,27 @@ function successModal() {
 }
 
 /* ----------------------------------------------------------------
-HANDLING THE FORM
-Functions to validate first name, last name, email, message
+MANIPULATION DU FORMULAIRE
+Fonctions pour valider Prénom, Nom, email, message
 ----------------------------------------------------------------- */
 
-// Setting the form inputs
+// Définition des entrées du formulaire
 const firstNameInput = document.getElementById('first');
 const lastNameInput = document.getElementById('last');
 const emailInput = document.getElementById('email');
 const messageInput = document.getElementById('message');
 
-// Function to validate first and last name
+// Fonction pour valider le prénom et le nom
 function validateFirstName(firstName, lastName) {
   const trimmFirstName = firstName.value.trim();
   const trimmLastName = lastName.value.trim();
   if (trimmFirstName.length < 2 || trimmFirstName === '') {
+    firstNameInput.classList.add('error_input');
     console.log("Le champ 'Prénom' doit avoir minimum 2 caracteres.");
     return false;
   }
   if (trimmFirstName.length >= 2) {
+    firstNameInput.classList.remove('error_input');
     console.log("Le champ 'Prénom' est OK");
   }
   if (trimmLastName.length < 2 || trimmLastName === '') {
@@ -84,7 +86,7 @@ function validateFirstName(firstName, lastName) {
   return true;
 }
 
-// Function to validate e-mail
+// Fonction pour valider l'e-mail
 function validateEmail(email) {
   const trimmedValue = email.value.trim();
   const regex = /(?=^.{5,255}$)^([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})$/g;
@@ -102,16 +104,12 @@ function validateEmail(email) {
   return true;
 }
 
-// Function to validate message
+// Fonction pour valider le message
 function validateMessage(message) {
   const trimmMessage = message.value.trim();
 
   if (trimmMessage.length < 20 || trimmMessage === '') {
     // window.alert("Le champ 'Message' doit avoir minimum 100 caracteres.");
-    const missingMessage = document.createElement('span');
-    missingMessage.textContent = "Le champ 'Message' doit avoir minimum 20 caracteres.";
-    missingMessage.classList.add('error_message');
-    messageInput.appendChild(missingMessage);
     console.log("Le champ 'Message' doit avoir minimum 20 caracteres.");
     return false;
   }
@@ -122,7 +120,7 @@ function validateMessage(message) {
   return true;
 }
 
-// Show the results on console
+// Afficher les résultats sur la console
 function createUserInfo() {
   const userInfo = {
     Prenom: firstNameInput.value,
@@ -133,13 +131,10 @@ function createUserInfo() {
   return userInfo;
 }
 
-// Main validation function for the entire form
+// Fonction de validation principale pour l'ensemble du formulaire
 function validate() {
-  // Calls validation function for First Name
   const isFirstAndLastNameValid = validateFirstName(firstNameInput, lastNameInput);
-  //   Calls validation function for email
   const isEmailValid = validateEmail(emailInput);
-  //  Calls validation function for email
   const isMessageValid = validateMessage(messageInput);
 
   if (
