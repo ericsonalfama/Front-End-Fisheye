@@ -56,6 +56,7 @@ GERER DROPDOWN
     const boutonTrierPopularite = document.getElementById('popularity');
     const boutonTrierDate = document.getElementById('dropdown_middle-option');
     const boutonTrierTitre = document.getElementById('dropdown-title');
+    const dropdownContainer = document.querySelector('.dropdown-content');
     const dropdownON = document.getElementById('fa-chevron-up');
     const dropdownOFF = document.getElementById('fa-chevron-down');
     const dropdownSelected = document.getElementById('selected');
@@ -92,6 +93,20 @@ GERER DROPDOWN
     dropdownON.addEventListener('click', closeDropdown);
     dropdownSelected.addEventListener('click', openDropdown);
     dropdownOFF.addEventListener('click', openDropdown);
+
+    // Écouteur d'événement pour fermer modal avec clavier (touche Esc/escape)
+    dropdownContainer.addEventListener('keydown', (event) => {
+      switch (event.code) {
+        case 'Enter':
+          openDropdown();
+          break;
+        case 'Escape':
+          closeDropdown();
+          break;
+        default:
+          break;
+      }
+    });
 
     // Fonction pour ouvrir la dropdown
     function openDropdown() {
@@ -188,7 +203,7 @@ async function getPhotographersProfile(singlePhotographerId) {
     newParagraphElement.parentNode.insertBefore(displayPhotographerName, newParagraphElement);
 
     contactButton.addEventListener('click', (e) => {
-      displayModal();// logs the className of my_element
+      displayModal();
     });
 
     // Ajout des éléments au DOM

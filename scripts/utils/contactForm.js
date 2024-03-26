@@ -149,10 +149,10 @@ function validate() {
   }
 }
 
-// Add a click event in the form submit button
+// J'ajoute l'événement click pour valider le formulaire
 document.querySelector('.contact_button')
   .addEventListener('click', (event) => {
     event.preventDefault();
-    // Call form validation function
+    // Appel de la fonction validate
     validate();
   });
