@@ -475,6 +475,9 @@ async function getLikes(currentPhotographerId) {
   }
 }
 
+/* ----------------------------------------------------------------
+AFFICHER LES LIKES et LE PRIX DU PHOTOGRAPHER
+----------------------------------------------------------------- */
 // Fonction pour afficher likes et prix
 // Utilisation de la fonction
 const photographerIdLikes = photographerId;
